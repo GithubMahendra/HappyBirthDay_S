@@ -137,21 +137,89 @@
                     </div>
                 </div>
                 <div class="card2">
-                    <div class="card2-content">
-                        <h3>To You!</h3>
-                        <h2>Happy birthday 🥳🎂🥳 chanda the day you come into my life I was not really much attached to
-                            you but day by day you became close to my heart . And now you are truly my younger sister. I
-                            wish I could remove some of the pain from your life which you are bearing alone. But you're
-                            always welcome 🤗 you can talk anytime you want to talk specially those which you can't say
-                            to others. And this year your all dreams come true . I wish that your
-                            brother could wish you but if couldn't wish on him behalf I am wishing you happy birthday
-                            🎈🎂🎈 sana . Don't be Sad ok be happy 😌
-                        </h2>
+                   <div class="card2-content">
+    <h3>To You!</h3>
+    
+    <!-- Pages Container -->
+    <div class="card-pages">
+        
+        <!-- PAGE 1 (Images + Short Text) -->
+        <div class="page page1 active-page">
+            <div class="image-grid">
+                <img src="./images/unnamed.png" alt="pic1">
+                <img src="./images/unnamed.png" alt="pic2">
+                <img src="./images/unnamed.png" alt="pic3">
+                <img src="./images/unnamed.png" alt="pic4">
+            </div>
+            <h2>
+                Happy birthday Sana! 🎈🎂🎈<br>
+                You are truly my younger sister.<br>
+                May all your dreams come true this year.<br>
+                Always be happy and keep smiling! 😌
+            </h2>
+            <!-- Next Button -->
+            <button class="nav-btn next-btn" onclick="nextPage()">Next Page ➡</button>
+        </div>
 
-                        <div class="imageCute2">
-                            <img src="cute2.png" alt="">
-                        </div>
+       <!-- PAGE 2 (10 Lines of Text) - Updated with Next Page button -->
+        <div class="page page2">
+            <div class="long-text">
+                Line 1: I know life throws its curveballs sometimes.<br>
+                Line 2: But never forget how strong you truly are.<br>
+                Line 3: You have a light inside that can't be dimmed.<br>
+                Line 4: This year, let's focus on happiness & growth.<br>
+                Line 5: Build a shield around your dreams, okay?<br>
+                Line 6: I'll always be your cheerleader from the side.<br>
+                Line 7: Let's fill this year with epic adventures.<br>
+                Line 8: And more reasons to laugh till your stomach hurts.<br>
+                Line 9: Always be proud of who you are becoming.<br>
+                Line 10: Happy Birthday, Sister Mine! 💖
+            </div>
+            <!-- Back Button -->
+            <button class="nav-btn prev-btn-2" onclick="prevPage2()">⬅ Back</button>
+            <!-- NEW Next Page Button for Page 3 -->
+            <button class="nav-btn next-btn-3" onclick="nextPage2()">Next Page ➡</button>
+        </div>
+
+        <!-- NEW PAGE 3 (Character + Bokeh + Text + One Image) -->
+        <div class="page page3">
+            <div class="character-rose-container">
+                <!-- Visual Container for Bokeh, Character, and Extra Image -->
+                <div class="character-rose-visuals">
+                    <!-- Page 3 Background Bokeh Image (Rose Theme) -->
+                    <img src="./images/unnamed.png" alt="Bokeh" class="bokeh-bg">
+                    
+                    <!-- One Additional Image (Rustic Photo Frame Style) -->
+                    <div class="page3-photo-frame">
+                        <img src="./images/unnamed.png" alt="Mehwish and Brother">
                     </div>
+
+                    <!-- Cartoon Body with Rose (Face will be blended via CSS and the final generated prompt image) -->
+                    <div class="page3-character">
+                        <!-- Use a single image where the face is blended, to describe in the prompt -->
+                        <img src="./images/unnamed.png" alt="Rose Offering">
+                    </div>
+                </div>
+
+                <!-- 4 Lines Text (Same Font) -->
+                <div class="page3-text">
+                    I'll always be your guiding light,<br>
+                    Ready to shield you from the fight,<br>
+                    May this year be your grand design,<br>
+                    Happy Birthday, Sister Mine!
+                </div>
+            </div>
+            <!-- Back Button for Page 3 -->
+            <button class="nav-btn prev-btn-3" onclick="prevPage3()">⬅ Back</button>
+        </div>
+
+    </div>
+
+    <!-- Cute Bottom Image (Will stay visible on both pages) -->
+    <div class="imageCute2">
+        <img src="cute2.png" alt="">
+    </div>
+</div>
                 </div>
             </div>
         </div>
@@ -244,8 +312,29 @@
         $(".box__letter").slideUp();
         $(".letter__border").slideUp();
     })
+// Function to go to Page 2
+function nextPage() {
+    document.querySelector('.page1').classList.remove('active-page');
+    document.querySelector('.page2').classList.add('active-page');
+}
 
+// Function to go back to Page 1
+// Function to go back to Page 1
+function prevPage2() {
+    document.querySelector('.page2').classList.remove('active-page');
+    document.querySelector('.page1').classList.add('active-page');
+}
+// Function to go to Page 3
+function nextPage2() {
+    document.querySelector('.page2').classList.remove('active-page');
+    document.querySelector('.page3').classList.add('active-page');
+}
 
+// Function to go back to Page 2
+function prevPage3() {
+    document.querySelector('.page3').classList.remove('active-page');
+    document.querySelector('.page2').classList.add('active-page');
+}
 
     let mailBox = document.querySelector('.mail')
     let boxmail = document.querySelector('.boxMail')

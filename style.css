@@ -836,13 +836,8 @@ body {
     perspective: 2000px;
     transition: all 0.5s;
 }
-.boxMail .boxMail-container:hover{
-    transform: rotate(-5deg);
-    filter: drop-shadow(0 0 10px #FF7882);
-}
-.boxMail .boxMail-container:hover .card1{
-    transform: translate(-187px, -250px) rotateY(-140deg);
-}
+
+
 .boxMail .boxMail-container .card1,
 .boxMail .boxMail-container .card2{
     position: absolute;
@@ -932,11 +927,7 @@ body {
     font-size: 25px;
     text-shadow: 0 0 8px #FF7882;
 }
-.boxMail .boxMail-container .card2:hover h3{
-    animation: texth3 3s forwards;
-    animation-delay: 2s;
-    transition: 1s;
-}
+
 @keyframes texth3{
     0%{
         opacity: 1;
@@ -956,11 +947,7 @@ body {
     font-size: 22px;
     opacity: 0;
 }
-.boxMail .boxMail-container .card2:hover h2{
-    animation: texth2 2s forwards;
-    animation-delay: 4s;
-    transition: 1s;
-}
+
 @keyframes texth2{
     0%{
         opacity: 0;
@@ -976,12 +963,7 @@ body {
     opacity: 0;
     transition: 1s;
 }
-.boxMail .boxMail-container .card2 .card2-content:hover .imageCute2{
-    animation: cute3 1s linear infinite,
-                cute4 3s 2s forwards;
-    animation-delay: 2s;
-    transition: 1s;
-}
+
 @keyframes cute3{
     0%{
         opacity: 1;
@@ -1024,4 +1006,239 @@ body {
     cursor: pointer;
     color: white;
     z-index: 10000000000000000;
+}
+
+/* 2x2 Image Grid Styles */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0px 20px;
+    margin-top: 10px;
+    opacity: 0;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100px; /* Ungaluku etha mathiri height adjust pannikalam */
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--color-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Image Grid Animation */
+.boxMail .boxMail-container .card2:hover .image-grid {
+    animation: texth2 2s forwards;
+    animation-delay: 3s; /* Text ku munnadi images varum */
+    transition: 1s;
+}
+
+/* Update existing h2 for better spacing with images */
+.boxMail .boxMail-container .card2 h2 {
+    font-family: 'Dancing Script', cursive; /* Same Font */
+    padding: 15px 20px;
+    text-indent: 0px;
+    text-align: center; /* Center alignment for short lines */
+    font-size: 19px;
+    line-height: 1.3;
+    opacity: 0;
+}
+
+
+/* Card hover aagama, .active class irunthale auto va open aaga */
+.boxMail.active .boxMail-container {
+    transform: rotate(-5deg);
+    filter: drop-shadow(0 0 10px var(--color-heart));
+}
+
+.boxMail.active .boxMail-container .card1 {
+    transform: translate(-187px, -250px) rotateY(-140deg);
+}
+
+.boxMail.active .boxMail-container .card2 h3 {
+    animation: texth3 3s forwards;
+    animation-delay: 2s;
+    transition: 1s;
+}
+
+.boxMail.active .boxMail-container .card2 h2 {
+    animation: texth2 2s forwards;
+    animation-delay: 4s;
+    transition: 1s;
+}
+
+/* 2x2 Image Grid auto animation */
+.boxMail.active .boxMail-container .card2 .image-grid {
+    animation: texth2 2s forwards;
+    animation-delay: 3s;
+    transition: 1s;
+}
+
+.boxMail.active .boxMail-container .card2 .card2-content .imageCute2 {
+    animation: cute3 1s linear infinite, cute4 3s 2s forwards;
+    animation-delay: 2s;
+    transition: 1s;
+}
+/* Page Container */
+.card-pages {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 90px); /* h3 heading ku space vitrukom */
+}
+
+/* Page Setup & Slide Animation */
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50px); /* Page right la irunthu ulla varum */
+    transition: all 0.5s ease-in-out;
+}
+
+.page.active-page {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Center ku vanthurum */
+}
+
+/* 10 Lines Text Style for Page 2 */
+.long-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 19px;
+    padding: 0px 20px;
+    text-align: center;
+    line-height: 1.4;
+    color: var(--color-white);
+    margin-top: 10px;
+}
+
+/* Navigation Buttons Design */
+.nav-btn {
+    position: absolute;
+    bottom: 5px;
+    background-color: var(--color-white);
+    color: var(--color-text-pink);
+    border: 2px solid var(--color-text-pink);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    background-color: var(--color-text-pink);
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+/* --- PAGE 3 STYLES --- */
+
+.character-rose-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.character-rose-visuals {
+    width: 100%;
+    height: calc(100% - 100px); /* Space for text and button */
+    position: relative;
+}
+
+/* Bokeh Background Image for Page 3 */
+.bokeh-bg {
+    width: 100%;
+    height: 82%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7; /* Soft look for bokeh */
+    filter: blur(2px); /* Extra blur for focus on other elements */
+    z-index: 1;
+}
+
+/* One Additional Image - Rustic Photo Frame Style */
+.page3-photo-frame {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--color-white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 3;
+    overflow: hidden;
+    transform: rotate(5deg);
+}
+
+.page3-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Character Styling - Detailed in the prompt for face blending */
+.page3-character {
+    position: absolute;
+    bottom: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Adjust size of the character */
+    max-height: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.page3-character img {
+    height: auto;
+    width: 79%; /* Make cartoon body fill container widthwise */
+    max-height: 100%;
+    object-fit: contain;
+	border-radius:78px;
+}
+
+/* Page 3 Text Styles (4 Lines, Center Aligned, Same Font) */
+.page3-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 19px;
+    padding: 0px 10px;
+    color: var(--color-white);
+    text-align: center;
+    line-height: 1.3;
+    margin-top: 10px;
+    z-index: 4;
+    position: relative;
+}
+
+/* Page 3 Nav Button Styles */
+.prev-btn-3 {
+    left: 20px;
+    z-index: 10;
+}
+
+.next-btn-3 {
+    right: 20px;
+    z-index: 10;
 }
